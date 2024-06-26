@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { api } from "@/utils/api";
+import { API } from "@/utils/api";
 
 const Home = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
-    api({
+    API({
       method: "POST",
       url: "/api/user",
       body: { name, email },

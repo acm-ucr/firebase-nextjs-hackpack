@@ -1,4 +1,4 @@
-export const api = async ({ url, method, body }) => {
+export const API = async ({ url, method, body }) => {
   const response = await fetch(url, {
     method: method,
     body: JSON.stringify(body),
