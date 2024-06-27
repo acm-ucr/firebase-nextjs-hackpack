@@ -1,35 +1,23 @@
 "use client";
-import { db } from "../utils/firebase.js";
-import { collection, addDoc } from "firebase/firestore";
-import { useState } from "react";
 
-const addDataToFireStore = async (name, email) => {
-  try {
-    const docRef = await addDoc(collection(db, "accounts"), {
-      name: name,
-      email: email,
-    });
-    console.log("Document written with ID: ", docRef.id);
-    return true;
-  } catch (error) {
-    console.log("Error adding document ", error);
-    return false;
-  }
-};
+import { useState } from "react";
+import { api } from "@/utils/api";
+
 const Home = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (e) => {
+    api({
+      method: "POST",
+      url: "/api/user",
+      body: { name, email },
+    })
+      .then(() => alert(`Submitted successfully!`, "success"))
+      .catch(() => alert(`Internal Server Error`, "error"));
     e.preventDefault();
-    const added = await addDataToFireStore(name, email);
-    if (added === true) {
-      setName("");
-      setEmail("");
-
-      alert("Data added to firestore DB");
-    }
   };
+
   return (
     <div className="w-full h-screen  flex flex-col justify-center items-center">
       <p className="text-xl mb-4">Add Data to Firestore Database</p>
