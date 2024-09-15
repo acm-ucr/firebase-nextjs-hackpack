@@ -10,7 +10,11 @@ export const metadata = {
   description: "Firebase Setup Integration with Next.js",
 };
 
-export default function RootLayout({ children }) {
+type Props = {
+  children: React.ReactNode;
+};
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body className={inter.className}>

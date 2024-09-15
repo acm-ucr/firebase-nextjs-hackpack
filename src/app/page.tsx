@@ -5,10 +5,10 @@ import { api } from "@/utils/api";
 import toast from "react-hot-toast";
 
 const Home = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     api({
       method: "POST",
@@ -20,7 +20,7 @@ const Home = () => {
   };
 
   return (
-    <div className="w-full h-screen  flex flex-col justify-center items-center">
+    <div className="w-full h-screen flex flex-col justify-center items-center">
       <p className="text-xl mb-4">Add Data to Firestore Database</p>
       <form
         onSubmit={handleSubmit}
