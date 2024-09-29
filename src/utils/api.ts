@@ -1,15 +1,10 @@
-interface body {
-  name: string;
-  email: string;
-}
-
-interface apifunc {
+interface request {
   url: string;
   method: string;
-  body: body;
+  body: Object;
 }
 
-export const api = async ({ url, method, body }: apifunc) => {
+export const api = async ({ url, method, body }: request) => {
   const response = await fetch(url, {
     method: method,
     body: JSON.stringify(body),
