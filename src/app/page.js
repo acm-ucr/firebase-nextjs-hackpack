@@ -20,32 +20,32 @@ const Home = () => {
   };
 
   return (
-    <div className="w-full h-screen  flex flex-col justify-center items-center">
-      <p className="text-xl mb-4">Add Data to Firestore Database</p>
+    <div className="flex h-screen w-full flex-col items-center justify-center">
+      <p className="mb-4 text-xl">Add Data to Firestore Database</p>
       <form
         onSubmit={handleSubmit}
-        className="max-w-md mx-auto bg-white shadow-md rounded-md"
+        className="mx-auto max-w-md rounded-md bg-white shadow-md"
       >
         <div className="mb-4 p-3">
-          <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+          <label htmlFor="name" className="mb-2 block font-bold text-gray-700">
             Name:
           </label>
           <input
             type="text"
             id="name"
-            className="px-3 py-2 border rounded-md"
+            className="rounded-md border px-3 py-2"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
         <div className="mb-4 p-3">
-          <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+          <label htmlFor="email" className="mb-2 block font-bold text-gray-700">
             Email:
           </label>
           <input
             type="text"
             id="email"
-            className="px-3 py-2 border rounded-md"
+            className="rounded-md border px-3 py-2"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -53,7 +53,7 @@ const Home = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md mb-4"
+            className="mb-4 rounded-md bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-600"
           >
             Submit
           </button>
