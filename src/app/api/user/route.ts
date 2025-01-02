@@ -1,10 +1,7 @@
-import { NextResponse } from "next/server";
-import { db } from "@/utils/firebase.js";
+import { db } from "@/utils/firebase";
 import { collection, addDoc } from "firebase/firestore";
 
-export const POST = async (req) => {
-  const res = NextResponse;
-
+export const POST = async (req: Request) => {
   const { name, email } = await req.json();
 
   try {
@@ -13,9 +10,9 @@ export const POST = async (req) => {
       email: email,
     });
 
-    return res.json({ message: "OK" }, { status: 200 });
+    return Response.json({ message: "OK" }, { status: 200 });
   } catch (err) {
-    return res.json(
+    return Response.json(
       { message: `Internal Server Error: ${err}` },
       { status: 500 },
     );
